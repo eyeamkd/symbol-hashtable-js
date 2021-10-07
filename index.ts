@@ -4,7 +4,7 @@
  * @param key 
  */
 const entry = (key:String, value:String) => {
-    let evaluateString = `let ${key} = symbol.for(${value})` 
+    let evaluateString = `let ${key} = Symbol.for('${value}')` 
     eval(evaluateString);  
 } 
 
@@ -16,4 +16,13 @@ const entry = (key:String, value:String) => {
 
 const get = (key:any) => {
     return Symbol.keyFor(key);
-}
+} 
+
+const test = () => { 
+
+    entry("dragon","dracarys"); 
+    console.log("Key is", get("dragon"));
+
+} 
+
+test();
